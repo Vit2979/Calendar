@@ -3,10 +3,12 @@ import "./css/style.css";
 import { configureStore } from "@reduxjs/toolkit";
 import { constants } from "./constants";
 import {
+  setPrevMonth,
+  setNextMonth,
   setMonthYear,
   datesSlice,
 } from "./reducers";
-import { renderCalendar} from "./render/calendar";
+import { renderCalendar } from "./render/calendar";
 
 export const store = configureStore({
   reducer: {
@@ -21,7 +23,7 @@ function init() {
   const nextMonthBtn = <HTMLButtonElement>(
     document.getElementById("next-month-btn")
   );
-  const todayBtn = <HTMLButtonElement>document.getElementById("today-btn"); 
+  const todayBtn = <HTMLButtonElement>document.getElementById("today-btn");
   const currentMonthBtn = <HTMLButtonElement>(
     document.getElementById("current-month-btn")
   );
@@ -52,6 +54,7 @@ function init() {
   nextMonthBtn.addEventListener("click", () => {
     store.dispatch(setNextMonth());
   });
+
 }
 
 window.addEventListener("load", init);
