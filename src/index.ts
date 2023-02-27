@@ -54,7 +54,6 @@ function init() {
   nextMonthBtn.addEventListener("click", () => {
     store.dispatch(setNextMonth());
   });
-
 }
 
 window.addEventListener("load", init);
