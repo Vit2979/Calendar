@@ -10,6 +10,16 @@
   width: 800px;
 }
 
+ .popover-display {
+  top: 46px;
+  display: none;
+}
+
+.popover-content {
+  height: 26rem;
+  overflow-y: scroll;
+} 
+
 .selected {
   background-color: #eee;
 }
