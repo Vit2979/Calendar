@@ -60,3 +60,25 @@ export function renderCalendar(el: HTMLElement, date?: Date) {
   innerHTML += `</tr>`;
   el.innerHTML = innerHTML;
 }
+
+export function renderPopover(options: any) {
+  const { popover, popoverContent, type, offset, data } = options;
+  if (popover.style.display !== "none" && type === popover.dataset.type) {
+    popover.style.display = "none";
+    popover.dataset.type = "";
+    return;
+  }
+  popoverContent.innerHTML = "";
+  data.forEach((item: string[] | number[]) => {
+    popoverContent.innerHTML += `
+            <button
+                type="button" class="btn btn-default btn-lg btn-block js-cal-option"
+                data-${type}="${item}">${item}
+            </button>
+        `;
+  });
+  popover.style.display = "block";
+  popover.style.top = `46px`;
+  popover.dataset.type = `${type}`;
+  popover.style.left = `${(offset - popover.clientWidth) / 2}px`;
+} 
